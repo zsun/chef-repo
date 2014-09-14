@@ -20,3 +20,9 @@
 include_recipe "chef-client"
 include_recipe "apt"
 include_recipe "ntp"
+
+ENV['MESSAGE']='Hello from chef'
+
+execute 'print value of env variable $MESSAGE' do
+		command 'echo $MESSAGE > /tmp/message'
+end
